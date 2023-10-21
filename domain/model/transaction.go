@@ -33,7 +33,7 @@ type Transaction struct {
 	CancelDescription string   `json:"cancel_description" valid:"notnull"`
 }
 
-func (t Transaction) isValid() error {
+func (t *Transaction) isValid() error {
 	_, err := govalidator.ValidateStruct(t)
 
 	if t.Amount <= 0 {
